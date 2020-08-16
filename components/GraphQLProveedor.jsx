@@ -16,9 +16,6 @@ const GraphQLData = ({ queryString, repoString }) => {
       options.headers[
         "Authorization"
       ] = `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`;
-      // options.headers[
-      //   "Authorization"
-      // ] = `Bearer 598a5c7c68ca78b460ac901147f26466f68da27a`;
     },
     // La operación típicamente contiene `query` y algunas veces` variables`, pero
     // se pueden usar propiedades adicionales; todos están codificados en JSON y se envían al
