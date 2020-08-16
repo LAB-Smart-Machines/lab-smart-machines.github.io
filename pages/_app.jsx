@@ -1,4 +1,4 @@
-// import "../static/styles/theme.css";
+import "../public/static/styles/theme.css";
 // https://github.com/zeit/next.js/blob/master/errors/css-global.md
 // https://github.com/zeit/next.js/blob/master/errors/app-container-deprecated.md
 
