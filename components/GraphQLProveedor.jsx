@@ -67,10 +67,7 @@ const GraphQLData = ({ queryString, repoString }) => {
     // `fetchError`,` httpError`, `parseError` y` graphQLErrors`. Una combinación
     // de errores es posible, y un error no significa necesariamente que los datos sean
     // no disponible.
-    <React.Fragment>
-      {console.log(cacheValue, process.env.NEXT_PUBLIC_GITHUB_TOKEN)}
-      Error
-    </React.Fragment>
+    <React.Fragment>Error</React.Fragment>
   );
 };
 
