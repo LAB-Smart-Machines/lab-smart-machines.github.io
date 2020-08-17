@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import { useGraphQL } from "graphql-react";
 
-const GraphQLData = ({ queryString, repoString }) => {
+const GraphQLData = ({ queryString, repoString, token }) => {
   // El hook useGraphQL se puede usar de la misma manera para consultas o mutaciones.
   const { loading, cacheValue = {} } = useGraphQL({
     // Cualquier API GraphQL puede consultarse en componentes, donde las opciones de fetch para el URL,
@@ -13,9 +13,7 @@ const GraphQLData = ({ queryString, repoString }) => {
 
     fetchOptionsOverride(options) {
       options.url = "https://api.github.com/graphql";
-      options.headers[
-        "Authorization"
-      ] = `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN}`;
+      options.headers["Authorization"] = `Bearer ${token}`;
     },
     // La operación típicamente contiene `query` y algunas veces` variables`, pero
     // se pueden usar propiedades adicionales; todos están codificados en JSON y se envían al

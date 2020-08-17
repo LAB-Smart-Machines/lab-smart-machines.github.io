@@ -71,7 +71,7 @@ module.exports = withPlugins(
   {
     env: {
       // Hacer una referencia a el variable que se definió en el archivo .env y ponerlo accesible en Build
-      GITHUB_TOKEN: process.env.GITHUB_TOKEN,
+      LSM_GITHUB_TOKEN: process.env.LSM_GITHUB_TOKEN,
     },
   }
 );

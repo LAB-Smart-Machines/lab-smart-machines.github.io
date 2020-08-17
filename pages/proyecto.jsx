@@ -35,6 +35,7 @@ const GQL = ({ queryString, repoString }) => {
   return (
     <GraphQLProvider graphql={graphql}>
       <GraphQLProveedor
+        token={process.env.NEXT_PUBLIC_GITHUB_TOKEN}
         queryString="LAB-Smart-Machines"
         repoString={repoString}
       />

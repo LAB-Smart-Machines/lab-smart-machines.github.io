@@ -47,6 +47,8 @@ const nuevaFila = (data, x) => {
 export default function Home() {
   return (
     <App>
+      {process.env.NEXT_PUBLIC_GREETING}
+      {process.env.GREETING}
       <Seccion
         claseSeccion={"header"}
         claseHeading={"main-heading"}
