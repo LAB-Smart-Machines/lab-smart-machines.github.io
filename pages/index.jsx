@@ -1,9 +1,8 @@
-import Link from "next/link";
-import App from "../components/App.jsx";
-import Seccion from "../components/Seccion";
-import Columna from "../components/Columna";
-import PROYECTOS from "../PROYECTOS.json";
-import CONTENIDO from "../CONTENIDO.json";
+import App from '../components/App.jsx';
+import Seccion from '../components/Seccion';
+import Columna from '../components/Columna';
+import PROYECTOS from '../PROYECTOS.json';
+import CONTENIDO from '../CONTENIDO.json';
 
 const aDiferenteFilas = (data) => {
   let tables = [];
@@ -21,20 +20,20 @@ const aDiferenteFilas = (data) => {
   return tables;
 };
 
-//TODO: <!-- github es requerido? -->
 const nuevaFila = (data, x) => {
   return (
     <div className="w-row" key={x}>
       {data.map((proyecto, i) => {
         return (
           <Columna
+            data={data}
             key={i}
             titulo={proyecto.titulo}
             subtitulo={proyecto.subtitulo}
             img={
               proyecto.img
-                ? require("../public/static/images/" + proyecto.img)
-                : require("../public/static/images/undraw_scrum_board_cesn.svg")
+                ? require('../public/static/images/' + proyecto.img)
+                : require('../public/static/images/undraw_scrum_board_cesn.svg')
             }
             github={proyecto.github}
           />
@@ -44,40 +43,38 @@ const nuevaFila = (data, x) => {
   );
 };
 
-export default function Home() {
+const Home = () => {
   return (
     <App>
-      {process.env.NEXT_PUBLIC_GREETING}
-      {process.env.GREETING}
       <Seccion
-        claseSeccion={"header"}
-        claseHeading={"main-heading"}
-        claseSub={"main-subtitle"}
+        claseSeccion={'header'}
+        claseHeading={'main-heading'}
+        claseSub={'main-subtitle'}
         titulo={CONTENIDO.titulo_principal}
-        subTexto={CONTENIDO.subtexto_principal.join(" ")}
+        subTexto={CONTENIDO.subtexto_principal.join(' ')}
       />
       <Seccion
-        claseSeccion={"section"}
-        claseHeading={"heading"}
-        claseSub={"text-block"}
+        claseSeccion={'section'}
+        claseHeading={'heading'}
+        claseSub={'text-block'}
         titulo={CONTENIDO.titulo_primera_seccion}
-        subTexto={CONTENIDO.subtexto_primera_seccion.join(" ")}
+        subTexto={CONTENIDO.subtexto_primera_seccion.join(' ')}
       />
 
       <Seccion
-        claseSeccion={"about-section"}
-        claseHeading={"heading-2"}
-        claseSub={"about-text"}
+        claseSeccion={'about-section'}
+        claseHeading={'heading-2'}
+        claseSub={'about-text'}
         titulo={CONTENIDO.titulo_segunda_seccion}
         subTexto={
           <div
             dangerouslySetInnerHTML={{
-              __html: CONTENIDO.subtexto_segunda_seccion.join(" "),
+              __html: CONTENIDO.subtexto_segunda_seccion.join(' '),
             }}
           ></div>
         }
-        botonHref={"#contact"}
-        botonTexto={"Contacto"}
+        botonHref={'#contact'}
+        botonTexto={'Contacto'}
       />
 
       <div id="proyectos" className="section grey">
@@ -89,4 +86,6 @@ export default function Home() {
       </div>
     </App>
   );
-}
+};
+
+export default Home;

@@ -1,10 +1,9 @@
-import * as React from "react";
-import App from "../components/App";
-import GraphQLProveedor from "../components/GraphQLProveedor";
-import Seccion from "../components/Seccion";
+import * as React from 'react';
+import App from '../components/App';
+import GQLNow from '../components/GQLNow';
+import Seccion from '../components/Seccion';
 
-import { useRouter } from "next/router";
-import { GraphQL, GraphQLProvider } from "graphql-react";
+import { useRouter } from 'next/router';
 
 const Proyecto = () => {
   const router = useRouter();
@@ -12,15 +11,15 @@ const Proyecto = () => {
   return (
     <App>
       <Seccion
-        claseSeccion={"header"}
-        claseHeading={"main-heading"}
-        claseSub={"main-subtitle"}
+        claseSeccion={'header'}
+        claseHeading={'main-heading'}
+        claseSub={'main-subtitle'}
         titulo={router.query.titulo}
       />
       <div id="projects" className="section grey">
         <div className="w-container">
           <div className="divider grey"></div>
-          <GQL repoString={router.query.titulo} />
+          <GQLNow />
         </div>
       </div>
     </App>
@@ -28,17 +27,3 @@ const Proyecto = () => {
 };
 
 export default Proyecto;
-
-// GraphQL cliente
-const graphql = new GraphQL();
-const GQL = ({ queryString, repoString }) => {
-  return (
-    <GraphQLProvider graphql={graphql}>
-      <GraphQLProveedor
-        token={process.env.NEXT_PUBLIC_GITHUB_TOKEN}
-        queryString="LAB-Smart-Machines"
-        repoString={repoString}
-      />
-    </GraphQLProvider>
-  );
-};

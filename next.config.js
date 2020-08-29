@@ -2,51 +2,65 @@
 // So, we write it in vanilla JS
 // (But you could use ES2015 features supported by your Node.js version)
 // https://github.com/cyrilwanner/next-compose-plugins
-require("dotenv").config();
-const withOptimizedImages = require("next-optimized-images");
-const withPlugins = require("next-compose-plugins");
-const CompressionPlugin = require("compression-webpack-plugin");
-const debug = process.env.NODE_ENV !== "production";
+require('dotenv').config();
+const withOptimizedImages = require('next-optimized-images');
+const withPlugins = require('next-compose-plugins');
+const CompressionPlugin = require('compression-webpack-plugin');
+const debug = process.env.NODE_ENV !== 'production';
+
+const {
+  NEXT_PUBLIC_GREETING,
+  LSM_GITHUB_TOKEN,
+  NEXT_PUBLIC_GITHUB_TOKEN,
+} = process.env;
+
+const env = {
+  NEXT_PUBLIC_GREETING,
+  LSM_GITHUB_TOKEN,
+  NEXT_PUBLIC_GITHUB_TOKEN,
+};
 
 const optimizedImagesConfig = {
-  inlineImageLimit: 8192,
-  imagesFolder: "images",
-  imagesName: "[name]-[hash].[ext]",
-  handleImages: ["jpeg", "jpg", "svg", "png"],
-  optimizeImages: true,
-  optimizeImagesInDev: false,
   mozjpeg: {
     quality: 80,
   },
-  optipng: {
-    optimizationLevel: 3,
+  pngquant: {
+    speed: 3,
+    strip: true,
+    verbose: true,
   },
-  pngquant: false,
+  inlineImageLimit: 8192,
+  imagesFolder: 'images',
+  imagesName: '[name]-[hash].[ext]',
+  handleImages: ['jpeg', 'jpg', 'svg', 'png'],
+  optimizeImages: true,
+  optimizeImagesInDev: false,
   gifsicle: {
     interlaced: true,
     optimizationLevel: 3,
   },
   webp: {
-    preset: "default",
+    preset: 'default',
     quality: 75,
   },
 };
 
 const nextConfiguration = {
+  env,
   test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
   compression: true,
-  loader: "url-loader?limit=100000",
+  loader: 'url-loader?limit=100000',
   exportPathMap: function () {
     return {
-      "/": { page: "/" },
-      "/about": { page: "/about" },
+      '/': { page: '/' },
+      '/about': { page: '/about' },
     };
   },
-  assetPrefix: !debug ? "/staging/" : "",
+  assetPrefix: !debug ? '/staging/' : '',
   webpack: (config, { dev }) => {
     // Perform customizations to webpack config
     config.module.rules = config.module.rules.map((rule) => {
-      if (rule.loader === "babel-loader") {
+      if (rule.loader === 'babel-loader') {
         rule.options.cacheDirectory = false;
       }
       return rule;
@@ -60,18 +74,12 @@ module.exports = withPlugins(
   [withOptimizedImages, optimizedImagesConfig],
   new CompressionPlugin({
     //gzip plugin
-    filename: "[path].gz[query]",
-    algorithm: "gzip",
+    filename: '[path].gz[query]',
+    algorithm: 'gzip',
     test: /\.(js|css|html|svg)$/,
     threshold: 10240,
     minRatio: 0.8,
     cache: true,
   }),
-  nextConfiguration,
-  {
-    env: {
-      // Hacer una referencia a el variable que se definió en el archivo .env y ponerlo accesible en Build
-      LSM_GITHUB_TOKEN: process.env.LSM_GITHUB_TOKEN,
-    },
-  }
+  nextConfiguration
 );

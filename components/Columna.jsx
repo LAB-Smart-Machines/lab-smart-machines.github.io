@@ -1,10 +1,11 @@
-import * as React from "react";
+import * as React from 'react';
 
 const Columna = ({ img, titulo, subtitulo, github }) => (
   <div className="w-col w-col-4 w-col-small-4">
     <div className="project-wrapper">
       <a
         href={`/proyecto?titulo=${github}`}
+        as={`/proyecto?titulo=${github}`}
         className="project-wrapper w-inline-block"
       >
         <img
