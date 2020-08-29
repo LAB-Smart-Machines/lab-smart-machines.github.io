@@ -12,7 +12,8 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $github_token
-  LSM_GITHUB_TOKEN: $LSM_GITHUB_TOKEN
   local_dir: out
   on:
     branch: master
+global:
+  LSM_GITHUB_TOKEN: $LSM_GITHUB_TOKEN
