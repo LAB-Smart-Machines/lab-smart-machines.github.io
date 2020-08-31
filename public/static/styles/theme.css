@@ -1,16 +1,16 @@
-@import "reset.css";
+@import 'reset.css';
 
 body {
   color: #040406;
   font-size: 16px;
   line-height: 20px;
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-weight: 500;
   letter-spacing: 0.01em;
 }
 
 h1 {
-  font-family: "Oswald";
+  font-family: 'Oswald';
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 32px;
@@ -19,7 +19,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Oswald";
+  font-family: 'Oswald';
   margin: 10px 0px;
   font-size: 23px;
   line-height: 36px;
@@ -29,7 +29,7 @@ h2 {
 }
 
 .h2-miembros {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 .miembro-title {
   font-size: 18px;
@@ -70,7 +70,7 @@ mark {
   background-color: transparent;
   -webkit-transition: background-color 300ms ease;
   transition: background-color 300ms ease;
-  font-family: "Oswald";
+  font-family: 'Oswald';
   text-transform: uppercase;
   color: #040406;
   font-size: 19px;
@@ -93,9 +93,9 @@ mark {
       from(rgba(239, 174, 175, 0.85)),
       to(#fc6767)
     ),
-    url("/static/images/CTICUNI-3.jpg");
+    url('/static/images/CTICUNI-3.jpg');
   background-image: linear-gradient(180deg, rgba(239, 174, 175, 0.85), #fc6767),
-    url("/static/images/CTICUNI-3.jpg");
+    url('/static/images/CTICUNI-3.jpg');
   background-position: 0px 0px, 50% 55%;
   background-size: auto, cover;
   color: #fff;
@@ -115,15 +115,33 @@ mark {
   border-bottom: 2px solid transparent;
   -webkit-transition: border-color 300ms ease;
   transition: border-color 300ms ease;
-
+  letter-spacing: 0.1rem;
   color: #404040;
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 0.95em;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
-.nav-link:hover {
+/* .nav-link:hover {
   border-bottom-color: #fc6767;
+} */
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #404040;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  -webkit-text-fill-color: #404040;
+  text-decoration: none;
 }
 
 .logo-img {
@@ -202,9 +220,9 @@ mark {
       from(rgba(239, 174, 175, 0.75)),
       to(#fc6767)
     ),
-    url("/static/images/CTICUNI-2.jpg");
+    url('/static/images/CTICUNI-2.jpg');
   background-image: linear-gradient(180deg, rgba(239, 174, 175, 0.75), #fc6767),
-    url("/static/images/CTICUNI-2.jpg");
+    url('/static/images/CTICUNI-2.jpg');
   background-size: auto, cover;
 }
 
@@ -415,6 +433,9 @@ mark {
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
+.li-dropdown {
+  font-size: 0.9em;
+}
 .li-dropdown a {
   color: #000;
   text-decoration: none;
@@ -442,8 +463,8 @@ mark {
   -webkit-transition: border-color 300ms ease;
   transition: border-color 300ms ease;
   color: #404040;
-  font-size: 12px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 700;
   text-transform: uppercase;
 }
 
@@ -479,7 +500,7 @@ mark {
 .readme h1 {
   text-transform: uppercase;
   text-align: center;
-  font-family: "Oswald";
+  font-family: 'Oswald';
   margin-top: 10px;
   margin-bottom: 10px;
   font-size: 32px;
@@ -541,11 +562,11 @@ mark {
 .error-page h1 {
   margin-top: 10vh;
   font-size: 38px;
-  font-family: "Raleway";
+  font-family: 'Raleway';
   text-align: center;
 }
 .error-page h2 {
-  font-family: "Raleway";
+  font-family: 'Raleway';
   text-align: center;
 }
 

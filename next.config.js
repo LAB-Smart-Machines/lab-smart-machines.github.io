@@ -3,21 +3,15 @@
 // (But you could use ES2015 features supported by your Node.js version)
 // https://github.com/cyrilwanner/next-compose-plugins
 require('dotenv').config();
+const path = require('path');
 const withOptimizedImages = require('next-optimized-images');
 const withPlugins = require('next-compose-plugins');
-const CompressionPlugin = require('compression-webpack-plugin');
 const debug = process.env.NODE_ENV !== 'production';
 
-const {
-  NEXT_PUBLIC_GREETING,
-  LSM_GITHUB_TOKEN,
-  NEXT_PUBLIC_GITHUB_TOKEN,
-} = process.env;
+const { LSM_GITHUB_TOKEN } = process.env;
 
 const env = {
-  NEXT_PUBLIC_GREETING,
   LSM_GITHUB_TOKEN,
-  NEXT_PUBLIC_GITHUB_TOKEN,
 };
 
 const optimizedImagesConfig = {
@@ -57,7 +51,19 @@ const nextConfiguration = {
     };
   },
   assetPrefix: !debug ? '/staging/' : '',
-  webpack: (config, { dev }) => {
+  webpack: (config, { isServer }) => {
+    // Fixes npm packages that depend on `fs` module
+    config.node = {
+      net: 'empty',
+      fs: 'empty',
+      tls: 'empty',
+    };
+
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname),
+    };
+
     // Perform customizations to webpack config
     config.module.rules = config.module.rules.map((rule) => {
       if (rule.loader === 'babel-loader') {
@@ -72,14 +78,5 @@ const nextConfiguration = {
 
 module.exports = withPlugins(
   [withOptimizedImages, optimizedImagesConfig],
-  new CompressionPlugin({
-    //gzip plugin
-    filename: '[path].gz[query]',
-    algorithm: 'gzip',
-    test: /\.(js|css|html|svg)$/,
-    threshold: 10240,
-    minRatio: 0.8,
-    cache: true,
-  }),
   nextConfiguration
 );

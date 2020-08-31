@@ -1,4 +1,6 @@
 import App from '../components/App.jsx';
+import Link from 'next/link';
+
 import Seccion from '../components/Seccion';
 import Columna from '../components/Columna';
 import PROYECTOS from '../PROYECTOS.json';

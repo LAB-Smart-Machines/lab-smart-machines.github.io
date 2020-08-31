@@ -1,25 +1,21 @@
 import * as React from 'react';
 import App from '../components/App';
-import GQLNow from '../components/GQLNow';
 import Seccion from '../components/Seccion';
+import Readme from '../components/Readme';
 
-import { useRouter } from 'next/router';
-
-const Proyecto = () => {
-  const router = useRouter();
-
+const Proyecto = (props) => {
   return (
     <App>
       <Seccion
         claseSeccion={'header'}
         claseHeading={'main-heading'}
         claseSub={'main-subtitle'}
-        titulo={router.query.titulo}
+        titulo={props.titulo}
       />
       <div id="projects" className="section grey">
         <div className="w-container">
           <div className="divider grey"></div>
-          <GQLNow />
+          <Readme github={props.titulo} />
         </div>
       </div>
     </App>
@@ -27,3 +23,7 @@ const Proyecto = () => {
 };
 
 export default Proyecto;
+
+Proyecto.getInitialProps = (context) => {
+  return context.query;
+};
