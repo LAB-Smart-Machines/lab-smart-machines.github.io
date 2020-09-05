@@ -3,10 +3,8 @@
 // (But you could use ES2015 features supported by your Node.js version)
 // https://github.com/cyrilwanner/next-compose-plugins
 require('dotenv').config();
-const path = require('path');
 const withOptimizedImages = require('next-optimized-images');
 const withPlugins = require('next-compose-plugins');
-const debug = process.env.NODE_ENV !== 'production';
 
 const { LSM_GITHUB_TOKEN } = process.env;
 
@@ -44,26 +42,9 @@ const nextConfiguration = {
   test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,
   compression: true,
   loader: 'url-loader?limit=100000',
-  exportPathMap: function () {
-    return {
-      '/': { page: '/' },
-      '/about': { page: '/about' },
-    };
-  },
-  assetPrefix: !debug ? '/staging/' : '',
-  webpack: (config, { isServer }) => {
-    // Fixes npm packages that depend on `fs` module
-    config.node = {
-      net: 'empty',
-      fs: 'empty',
-      tls: 'empty',
-    };
 
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '@': path.resolve(__dirname),
-    };
-
+  assetPrefix: '',
+  webpack: (config, { dev }) => {
     // Perform customizations to webpack config
     config.module.rules = config.module.rules.map((rule) => {
       if (rule.loader === 'babel-loader') {

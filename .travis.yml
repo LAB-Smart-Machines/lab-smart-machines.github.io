@@ -15,5 +15,3 @@ deploy:
   local_dir: out
   on:
     branch: master
-global:
-  LSM_GITHUB_TOKEN: $LSM_GITHUB_TOKEN
