@@ -1,60 +1,64 @@
-# Next.js gh-pages Hello World example
+## Herramientas Utilizadas
 
-This repository is a gh-pages example built with Next.js
+📄 [Diseño hecho en webflow ](https://smart-machines.webflow.io/)
 
-https://thierryc.github.io/Next-gh-page-example/
+💻 [Website en progreso](https://lab-smart-machines-github-io.vercel.app/)
 
-Install it and run:
+🏁 [Iconos FontAwesome](https://fontawesome.com/)
+
+🙂 [Ilustraciones unDraw](https://undraw.co/)
+
+Usamos NextJS, GraphQL y Vercel para desplegar.
+
+# Hosting con Vercel (Traducción de la [Introduccion](https://vercel.com/docs/introduction))
+
+## Como usar 💻
+
+<summary><b>Descargar Node.js</b></summary>
+Node.js es un entorno de ejecución para JavaScript.
+Descargarlo : https://nodejs.org/es/
+
+<summary><b>Clonar el repositorio e Instalar</b></summary>
+
+`git clone https://github.com/LAB-Smart-Machines/lab-smart-machines.github.io.git`
+
+### <b> Instalar todo los packages</b>
+
+Instalar packages necesarios
 
 ```bash
 npm install
-npm run dev
 ```
 
-Deploy it to github
+### <b>Variables </b>
 
-Edit `env-config.js` and replace `'Next-gh-page-example'` by your project name.
+Se requiere un token de acceso personal para autenticar y acceder el contenido del usuario. Si no tienes el token, se necesita crear uno nuevo. En este proyecto, usamos un token de Github que nos da permiso ver nuestros proyectos.
 
-Edit `next.config.js` and replace `'Next-gh-page-example'` by your project name.
+![Image of Logged In](readme-img/developer-settings.png)
 
-1. Create repository.
-2. Link it to your github account.
-3. Publish your master branch.
+Lee mas [aquí](https://help.github.com/es/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
 
-```bash
-npm run deploy
+Despues de haber copiado el nuevo token, no te olvides de ponerlo en tu archivo `.env` en el directorio raíz de su proyecto. Agregar variables específicas en forma de `NOMBRE = VALOR`.
+Es requerido tener `LSM_GITHUB_TOKEN` en `.env`:
+
+```javascript
+LSM_GITHUB_TOKEN = xxxxxxxxxxxxxxxxxxxxxxx;
 ```
 
-Test it:
+❗ _Mantener seguro tu cuenta y tus datos. Como precaución de seguridad, archivos `.env` deben ser ignorados e indicarle a Git que no lo quieres compartir. Tienen que estar añadidos a tu archivo [`.gitignore`](https://docs.github.com/es/github/using-git/ignoring-files)_
 
-Replace 'github-user-name' and 'github-project-name'
+❗ **_Advertencia: Preserva tus tokens de la misma manera que tus contraseñas y no se las reveles a nadie. Cuando trabajes con un API, usa tokens como variables del entorno en lugar de codificarlos de forma rígida en tus programas._**
 
-```bash
-https://github-user-name.github.io/github-project-name/
-```
+## Importante 📌
 
-## Custom domain setting
+- Si el token de Github se ha cambiado, tambien se necesita actualizar el valor en [Vercel](https://vercel.com/docs/build-step#environment-variables) con el mismo nombre `LSM_GITHUB_TOKEN`.
 
-You can add on to the deploy command to create the CNAME file for you. GitHub detects this file and automatically updates the custom domain setting. Edit the package.json deploy script and replace example.com with your custom domain. (Thank you to @jabacchetta)
+## Como desplegar a Vercel? 🚀
 
-```bash
-rm -rf node_modules/.cache
-&& rimraf out
-&& next build
-&& next export
-&& touch out/.nojekyll
-&& touch out/CNAME
-&& echo \"example.com\" >> out/CNAME
-&& gh-pages -d out
-```
+Cada vez que el codigo se actualiza en el branch `master`, vercel deberia desplegar actulizar tambien.
 
-Example:
+Entra a la pagina de [Vercel](https://vercel.com/), inicia la sesión que debe estar conectada al Github [`lab-smart-machines`](https://vercel.com/lab-smart-machines/lab-smart-machines-github-io).
 
-```bash
-https://github.com/thierryc/Next-gh-page-example/
-https://thierryc.github.io/Next-gh-page-example/
-```
+### [Como edito la pagina principal?](/EDITAR.md) ✏
 
-## The idea behind the example
-
-This example shows the most basic idea behind Next. We have 2 pages: `pages/index.js` and `pages/about.js`. The former responds to `/` requests and the latter to `/about`. Using `next/link` you can add hyperlinks between them with universal routing capabilities.
+### [Como uso Markdown?](/MARKDOWN.md) 📃
