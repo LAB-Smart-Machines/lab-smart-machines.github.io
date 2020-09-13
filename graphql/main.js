@@ -1,3 +1,4 @@
+/* eslint-disable import/prefer-default-export */
 import gql from 'graphql-tag';
 
 export const README_GQL = gql`
@@ -10,6 +11,7 @@ export const README_GQL = gql`
       }
       id
       url
+      description
     }
   }
 `;
