@@ -263,14 +263,21 @@ mark {
   color: #1c1c1c;
 }
 
+.direccion > * {
+  margin-bottom: 2vh;
+}
+.direccion div {
+  margin-bottom: 0;
+}
+
 .social-wrapper {
-  display: block;
-  margin-bottom: 11px;
+  /* display: inline-block; */
+  margin-bottom: 2vh;
   margin-left: 33%;
-  -webkit-transition: opacity 300ms ease;
   transition: opacity 300ms ease;
   text-align: left;
   text-decoration: none;
+  float: left;
 }
 
 .social-wrapper:hover {
@@ -354,8 +361,9 @@ mark {
 
 @media (max-width: 767px) {
   .header {
-    padding-top: 45px;
-    padding-bottom: 45px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-left: 30px;
   }
   .navbar {
     padding-top: 10px;
@@ -370,23 +378,62 @@ mark {
     width: 100px;
   }
   .about-section {
-    padding-right: 20px;
+    padding-right: 30px;
     padding-bottom: 30px;
-    padding-left: 20px;
+    padding-left: 30px;
   }
+
+  .main-subtitle {
+    font-size: 20px;
+    line-height: 1.3;
+    font-style: italic;
+  }
+
   .section {
-    padding-top: 30px;
+    padding-right: 30px;
     padding-bottom: 30px;
+    padding-left: 30px;
   }
+
+  .text-block {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .about-text {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .project-title {
+    font-size: 24px;
+  }
+
+  .project-info {
+    font-size: 18px;
+  }
+
   .icon-wrapper {
     height: 85px;
   }
   .icon-wrapper._2 {
     margin-top: 37px;
   }
+  .contact-text {
+    font-size: 16px;
+  }
+  .direccion > * {
+    margin-bottom: 5vh;
+  }
+  .direccion div {
+    margin-bottom: 0;
+  }
   .social-wrapper {
-    margin-left: 0%;
     text-align: center;
+    font-size: 16px;
+    float: none;
+    margin: 0 auto 4vh;
+    display: table;
   }
   .menu-button {
     margin-top: 0px;

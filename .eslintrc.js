@@ -31,7 +31,7 @@ module.exports = {
     ],
     // Disable global-require and no-dynamic-require for next-optimized-images
     'global-require': 0,
-    'no-param-reassign': { props: false },
+    'no-param-reassign': [2, { props: false }],
     'no-trailing-spaces': ['error', { skipBlankLines: true }],
   },
 };

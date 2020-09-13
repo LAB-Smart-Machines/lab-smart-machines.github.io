@@ -7,6 +7,8 @@
     "build": "next build",
     "start": "next start",
     "export": "next export",
+    "lint": "eslint . --ext .jsx",
+    "lint:fix": "eslint --fix . --ext .js",
     "out": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll",
     "deploy": "rm -rf node_modules/.cache && rimraf out && next build && next export && touch out/.nojekyll && gh-pages -d out -t true"
   },

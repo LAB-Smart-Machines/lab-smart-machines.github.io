@@ -1,5 +1,5 @@
-import App from "../components/App";
-import logo from "../public/static/images/smart_machines_ctic_logo.png";
+import App from '../components/App';
+import logo from '../public/static/images/smart_machines_ctic_logo.png';
 
 const ErrorPage = () => (
   <App>
@@ -13,7 +13,7 @@ const ErrorPage = () => (
         alt="regresar al inicio"
         sizes="(max-width: 900px) 60px, 190px"
         width="500"
-      ></img>
+      />
     </div>
   </App>
 );

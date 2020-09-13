@@ -59,5 +59,5 @@ const nextConfiguration = {
 
 module.exports = withPlugins(
   [withOptimizedImages, optimizedImagesConfig],
-  nextConfiguration
+  nextConfiguration,
 );

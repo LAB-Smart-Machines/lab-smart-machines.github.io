@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useQuery } from '@apollo/client';
-import { README_GQL } from '../graphql/main';
-
 import ReactMarkdown from 'react-markdown';
+import { README_GQL } from '../graphql/main';
 
 const ReadmeComponent = (github) => {
   const nameT = github.github;

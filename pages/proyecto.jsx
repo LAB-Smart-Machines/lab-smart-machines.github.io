@@ -3,27 +3,23 @@ import App from '../components/App';
 import Seccion from '../components/Seccion';
 import Readme from '../components/Readme';
 
-const Proyecto = (props) => {
-  return (
-    <App>
-      <Seccion
-        claseSeccion={'header'}
-        claseHeading={'main-heading'}
-        claseSub={'main-subtitle'}
-        titulo={props.titulo}
-      />
-      <div id="projects" className="section grey">
-        <div className="w-container">
-          <div className="divider grey"></div>
-          <Readme github={props.titulo} />
-        </div>
+const Proyecto = (props) => (
+  <App>
+    <Seccion
+      claseSeccion="header"
+      claseHeading="main-heading"
+      claseSub="main-subtitle"
+      titulo={props.titulo}
+    />
+    <div id="projects" className="section grey">
+      <div className="w-container">
+        <div className="divider grey" />
+        <Readme github={props.titulo} />
       </div>
-    </App>
-  );
-};
+    </div>
+  </App>
+);
 
 export default Proyecto;
 
-Proyecto.getInitialProps = (context) => {
-  return context.query;
-};
+Proyecto.getInitialProps = (context) => context.query;

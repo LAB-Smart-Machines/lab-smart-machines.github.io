@@ -1,5 +1,4 @@
 import App from '../components/App.jsx';
-import Link from 'next/link';
 
 import Seccion from '../components/Seccion';
 import Columna from '../components/Columna';
@@ -7,7 +6,7 @@ import PROYECTOS from '../PROYECTOS.json';
 import CONTENIDO from '../CONTENIDO.json';
 
 const aDiferenteFilas = (data) => {
-  let tables = [];
+  const tables = [];
   let fila = [];
 
   data.proyecto.forEach((row, i) => {
@@ -22,72 +21,66 @@ const aDiferenteFilas = (data) => {
   return tables;
 };
 
-const nuevaFila = (data, x) => {
-  return (
-    <div className="w-row" key={x}>
-      {data.map((proyecto, i) => {
-        return (
-          <Columna
-            data={data}
-            key={i}
-            titulo={proyecto.titulo}
-            subtitulo={proyecto.subtitulo}
-            img={
-              proyecto.img
-                ? require('../public/static/images/' + proyecto.img)
-                : require('../public/static/images/undraw_scrum_board_cesn.svg')
-            }
-            github={proyecto.github}
-          />
-        );
-      })}
-    </div>
-  );
-};
-
-const Home = () => {
-  return (
-    <App>
-      <Seccion
-        claseSeccion={'header'}
-        claseHeading={'main-heading'}
-        claseSub={'main-subtitle'}
-        titulo={CONTENIDO.titulo_principal}
-        subTexto={CONTENIDO.subtexto_principal.join(' ')}
-      />
-      <Seccion
-        claseSeccion={'section'}
-        claseHeading={'heading'}
-        claseSub={'text-block'}
-        titulo={CONTENIDO.titulo_primera_seccion}
-        subTexto={CONTENIDO.subtexto_primera_seccion.join(' ')}
-      />
-
-      <Seccion
-        claseSeccion={'about-section'}
-        claseHeading={'heading-2'}
-        claseSub={'about-text'}
-        titulo={CONTENIDO.titulo_segunda_seccion}
-        subTexto={
-          <div
-            dangerouslySetInnerHTML={{
-              __html: CONTENIDO.subtexto_segunda_seccion.join(' '),
-            }}
-          ></div>
+const nuevaFila = (data, x) => (
+  <div className="w-row" key={x}>
+    {data.map((proyecto, i) => (
+      <Columna
+        data={data}
+        key={i}
+        titulo={proyecto.titulo}
+        subtitulo={proyecto.subtitulo}
+        img={
+          proyecto.img
+            ? require(`../public/static/images/${proyecto.img}`)
+            : require('../public/static/images/undraw_scrum_board_cesn.svg')
         }
-        botonHref={'#contact'}
-        botonTexto={'Contacto'}
+        github={proyecto.github}
       />
+    ))}
+  </div>
+);
 
-      <div id="proyectos" className="section grey">
-        <div className="w-container">
-          <h2 className="heading-3">Proyectos</h2>
-          <div className="divider grey"></div>
-          {aDiferenteFilas(PROYECTOS)}
-        </div>
+const Home = () => (
+  <App>
+    <Seccion
+      claseSeccion="header"
+      claseHeading="main-heading"
+      claseSub="main-subtitle"
+      titulo={CONTENIDO.titulo_principal}
+      subTexto={CONTENIDO.subtexto_principal.join(' ')}
+    />
+    <Seccion
+      claseSeccion="section"
+      claseHeading="heading"
+      claseSub="text-block"
+      titulo={CONTENIDO.titulo_primera_seccion}
+      subTexto={CONTENIDO.subtexto_primera_seccion.join(' ')}
+    />
+
+    <Seccion
+      claseSeccion="about-section"
+      claseHeading="heading-2"
+      claseSub="about-text"
+      titulo={CONTENIDO.titulo_segunda_seccion}
+      subTexto={
+        <div
+          dangerouslySetInnerHTML={{
+            __html: CONTENIDO.subtexto_segunda_seccion.join(' '),
+          }}
+        />
+      }
+      botonHref="#contact"
+      botonTexto="Contacto"
+    />
+
+    <div id="proyectos" className="section grey">
+      <div className="w-container">
+        <h2 className="heading-3">Proyectos</h2>
+        <div className="divider grey" />
+        {aDiferenteFilas(PROYECTOS)}
       </div>
-    </App>
-  );
-};
+    </div>
+  </App>
+);
 
 export default Home;

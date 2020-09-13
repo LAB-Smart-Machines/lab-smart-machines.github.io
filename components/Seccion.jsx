@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 //  componente stateless
 const Seccion = ({
@@ -11,13 +11,13 @@ const Seccion = ({
   botonTexto,
 }) => (
   <section className={claseSeccion}>
-    {claseHeading === "main-heading" ? (
+    {claseHeading === 'main-heading' ? (
       <h1 className={claseHeading}>{titulo}</h1>
     ) : (
       <h2 className={claseHeading}>{titulo}</h2>
     )}
     <div className="w-container">
-      <div className="divider grey"></div>
+      <div className="divider grey" />
 
       <p className={claseSub}>{subTexto}</p>
       {botonHref ? (
@@ -25,7 +25,7 @@ const Seccion = ({
           {botonTexto}
         </a>
       ) : (
-        ""
+        ''
       )}
     </div>
   </section>

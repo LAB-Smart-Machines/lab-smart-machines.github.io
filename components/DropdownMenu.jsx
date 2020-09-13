@@ -44,18 +44,16 @@ class Menu extends Component {
           sizes="(max-width: 71px) 50px, 71px"
           width="16"
           onClick={this.showMenu}
-        ></img>
+        />
         {this.state.showMenu ? (
           <ul className="ul-dropdown">
-            {PROYECTOS.proyecto.map((proyecto, i) => {
-              return (
-                <PostLink
-                  titulo={proyecto.titulo}
-                  github={proyecto.github}
-                  key={i}
-                />
-              );
-            })}
+            {PROYECTOS.proyecto.map((proyecto, i) => (
+              <PostLink
+                titulo={proyecto.titulo}
+                github={proyecto.github}
+                key={i}
+              />
+            ))}
           </ul>
         ) : null}
       </div>

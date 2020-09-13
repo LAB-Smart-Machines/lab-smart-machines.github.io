@@ -1,14 +1,14 @@
 import * as React from 'react';
 import Link from 'next/link';
 import logo from '../public/static/images/smart_machines_ctic_logo.png';
-import DDMenu from '../components/DropdownMenu';
-import MobileNav from '../components/MobileNav';
+import DDMenu from './DropdownMenu';
+import MobileNav from './MobileNav';
 
 // stateless componente
 const Header = ({ pathname }) => {
   const node = React.useRef();
   return (
-    <React.Fragment>
+    <>
       <div className="menu-mobile" ref={node}>
         <MobileNav />
       </div>
@@ -26,7 +26,7 @@ const Header = ({ pathname }) => {
               alt="regresar al inicio"
               sizes="(max-width: 767px) 50px, 136px"
               width="136"
-            ></img>
+            />
           </a>
           {/* https://nextjs.org/docs/api-reference/next/link */}
           <header role="navigation" className="nav-menu w-nav-menu">
@@ -46,7 +46,7 @@ const Header = ({ pathname }) => {
           </header>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 
