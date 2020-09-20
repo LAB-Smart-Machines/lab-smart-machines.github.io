@@ -84,66 +84,6 @@ mark {
   background-color: #fff;
 }
 
-.header {
-  padding: 98px 10px;
-  background-image: -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(rgba(239, 174, 175, 0.85)),
-      to(#fc6767)
-    ),
-    url('/static/images/CTICUNI-3.jpg');
-  background-image: linear-gradient(180deg, rgba(239, 174, 175, 0.85), #fc6767),
-    url('/static/images/CTICUNI-3.jpg');
-  background-position: 0px 0px, 50% 55%;
-  background-size: auto, cover;
-  color: #fff;
-  text-align: center;
-}
-
-.navbar {
-  padding-top: 18px;
-  padding-bottom: 18px;
-  background-color: #fff;
-}
-
-.nav-link {
-  margin-top: 23px;
-  margin-left: 34px;
-  padding: 0px;
-  border-bottom: 2px solid transparent;
-  -webkit-transition: border-color 300ms ease;
-  transition: border-color 300ms ease;
-  letter-spacing: 0.1rem;
-  color: #404040;
-  font-size: 0.95em;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-/* .nav-link:hover {
-  border-bottom-color: #fc6767;
-} */
-
-.nav-link::after {
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #404040;
-  transition: width 0.3s;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-.nav-link:hover {
-  -webkit-text-fill-color: #404040;
-  text-decoration: none;
-}
-
 .logo-img {
   margin-right: 18px;
   float: left;
@@ -175,7 +115,7 @@ mark {
 }
 
 .main-subtitle {
-  color: #39585e;
+  color: #404040;
   font-size: 18px;
   font-style: italic;
 }
@@ -185,7 +125,7 @@ mark {
   padding-bottom: 69px;
   background-color: #fc6767;
   text-align: center;
-  color: #040406;
+  color: #404040;
 }
 
 .about-text {
@@ -232,7 +172,7 @@ mark {
   display: block;
   -webkit-transition: bottom 300ms ease;
   transition: bottom 300ms ease;
-  color: #040406;
+  color: #404040;
   text-decoration: none;
   font-size: 14px;
 }
@@ -254,13 +194,13 @@ mark {
 }
 
 .contact-text {
-  color: #212121;
+  color: #404040;
   font-size: 13px;
   text-transform: uppercase;
 }
 
 .link {
-  color: #1c1c1c;
+  color: #404040;
 }
 
 .direccion > * {
@@ -304,6 +244,7 @@ mark {
 
 .project-title {
   margin-bottom: 4px;
+  font-weight: 600;
 }
 
 .heading {
@@ -328,12 +269,16 @@ mark {
 }
 
 @media (max-width: 991px) {
+  .w-container {
+    max-width: 88%;
+  }
   .nav-link {
     margin-left: 2vw;
-    font-size: 14px;
+    /* font-size: 2vw; */
+    font-size: calc(0.5vw + 0.45vh + 0.5vmin);
   }
   .nav-link:hover {
-    border-bottom-color: transparent;
+    border-bottom-color: transpsarent;
   }
   .main-heading {
     font-size: 38px;
@@ -359,6 +304,9 @@ mark {
 }
 
 @media (max-width: 767px) {
+  .navbar {
+    position: unset;
+  }
   .w-col.w-col-4.w-col-small-4 {
     width: 100%;
   }
@@ -462,10 +410,78 @@ mark {
   }
 }
 
-/* menu */
+/* Menu */
 .menu-mobile > nav {
   z-index: 1;
 }
+
+.navbar {
+  padding-top: 18px;
+  padding-bottom: 18px;
+  background-color: #fff;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+
+  box-shadow: 5px 10px 18px rgba(239, 174, 175, 0.85);
+}
+
+.nav-link {
+  /* margin-top: 23px;
+  margin-left: 34px; */
+  margin: 23px calc(0.6vw + 0.6vh + 0.6vmin) 0 0;
+  padding: 0px;
+  border-bottom: 2px solid transparent;
+  -webkit-transition: border-color 300ms ease;
+  transition: border-color 300ms ease;
+  letter-spacing: 0.1rem;
+  color: #404040;
+  /* font-size: 0.95em; */
+  font-size: (0.5vw + 0.5vh + 0.5vmin);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.nav-link::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #404040;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link:hover {
+  -webkit-text-fill-color: #404040;
+  text-decoration: none;
+}
+
+.header {
+  padding: 98px 10px;
+  background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(rgba(239, 174, 175, 0.85)),
+      to(#fc6767)
+    ),
+    url('/static/images/CTICUNI-3.jpg');
+  background-image: linear-gradient(180deg, rgba(239, 174, 175, 0.85), #fc6767),
+    url('/static/images/CTICUNI-3.jpg');
+  background-position: 0px 0px, 50% 55%;
+  background-size: auto, cover;
+  color: #fff;
+  text-align: center;
+  margin-top: 90px;
+}
+
+/*  */
 
 .ul-dropdown {
   list-style-type: none;
@@ -484,13 +500,19 @@ mark {
   font-size: 0.9em;
 }
 .li-dropdown a {
-  color: #000;
+  color: #404040;
   text-decoration: none;
   margin: 0px;
   display: block;
   width: 100%;
   height: 100%;
+
+  /* color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none; */
 }
+
 .li-dropdown {
   padding: 8px 16px;
   border-bottom: 1px solid #e5e5e5;
@@ -510,7 +532,8 @@ mark {
   -webkit-transition: border-color 300ms ease;
   transition: border-color 300ms ease;
   color: #404040;
-  font-size: 14px;
+  /* font-size: 14px; */
+  /* font-size: calc(0.5vw + 0.5vh + 0.5vmin); */
   font-weight: 700;
   text-transform: uppercase;
 }

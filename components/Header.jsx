@@ -1,11 +1,11 @@
 import * as React from 'react';
 import Link from 'next/link';
-import logo from '../public/static/images/smart_machines_ctic_logo.png';
+import logo from '../public/static/images/smart_machines_ctic_logo_orginal.png';
 import DDMenu from './DropdownMenu';
 import MobileNav from './MobileNav';
 
 // stateless componente
-const Header = ({ pathname }) => {
+const Header = () => {
   const node = React.useRef();
   return (
     <>

@@ -14,6 +14,7 @@ module.exports = {
   plugins: ['react', 'jest'],
   ignorePatterns: ['out'],
   rules: {
+    'react/prop-types': 0,
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [
       1,
