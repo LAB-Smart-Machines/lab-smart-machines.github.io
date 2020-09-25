@@ -34,5 +34,6 @@ module.exports = {
     'global-require': 0,
     'no-param-reassign': [2, { props: false }],
     'no-trailing-spaces': ['error', { skipBlankLines: true }],
+    'no-extend-native': [2, { exceptions: ['String'] }],
   },
 };

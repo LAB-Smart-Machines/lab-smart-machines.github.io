@@ -143,9 +143,7 @@ p {
     padding-left: 10px;
   }
 }
-.w-nav {
-  /*! position:relative; */ /*! background:#dddddd; */ /*! z-index:1000 */
-}
+
 .w-nav:before,
 .w-nav:after {
   content: ' ';
@@ -187,7 +185,6 @@ p {
   display: none;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;

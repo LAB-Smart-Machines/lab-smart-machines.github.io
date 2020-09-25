@@ -1,19 +1,21 @@
 import * as React from 'react';
 import App from '../components/App';
-import profile_pic from '../public/static/images/undraw_profile_pic_ic5t.svg';
+import profilePic from '../public/static/images/undraw_profile_pic_ic5t.svg';
 import INTEGRANTES from '../INTEGRANTES.json';
 
 String.prototype.aSentencia = function () {
   return this.match(/[A-zÀ-ú]+/gi)
-    .map((word, index) => (word.length > 2
-      ? word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
-      : word))
+    .map((word) =>
+      word.length > 2
+        ? word.charAt(0).toUpperCase() + word.substr(1).toLowerCase()
+        : word
+    )
     .join(' ');
 };
 
 const Miembros = () => (
   <App>
-    <div id="projects" className="section grey">
+    <div id="miembros" className="miembros-page section grey">
       <div className="w-container">
         <h1 className="heading-3">Miembros</h1>
         <div className="divider grey" />
@@ -24,7 +26,7 @@ const Miembros = () => (
               key={i}
               titulo={miembro.nombre}
               subtitulo={miembro.titulo.aSentencia()}
-              img={profile_pic}
+              img={profilePic}
             />
           ))}
         </div>
